@@ -9,10 +9,15 @@
 	GPS_TXD	  --->		RX2
 
 **/
-
 #include <TimerOne.h>
 
-#define DEBUGSERIAL  Serial
+#define DEBUG
+
+#ifdef DEBUG
+#define DEBUGSERIAL(x)  Serial.println((x))
+#else
+#define DEBUGSERIAL(x)  (x)
+#endif
 #define GPRS_SERIAL  Serial2
 #define GPS_SERIAL   Serial3
 #define SUCCESS      1U
